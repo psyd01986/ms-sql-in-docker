@@ -1,0 +1,12 @@
+[Unit]
+Description=MSSQL 2017 container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker-compose -f /opt/mssql/docker-mssql.yml up
+ExecStop=/usr/bin/docker-compose -f /opt/mssql/docker-mssql.yml down
+
+[Install]
+WantedBy=default.target

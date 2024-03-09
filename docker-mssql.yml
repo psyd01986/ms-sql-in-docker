@@ -4,7 +4,7 @@ services:
     container_name: mssql
     hostname: mssql
     image: mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
-    hostname:
+    restart: always
     environment:
       ACCEPT_EULA: 'Y'
       MSSQL_PID: 'Developer'

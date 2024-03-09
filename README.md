@@ -19,7 +19,30 @@ docker run -e ACCEPT_EULA=Y -e MSSQL_PID="Developer" -e MSSQL_SA_PASSWORD="P@ssw
 ```
 
 ```bash
-docker-compose up -d
+docker-compose -f docker-mssql.yml up -d
+```
+
+## Запуск и автозапуск после падения средствами systemd
+- размещаем unit в /etc/systemd/system
+```bash
+./etc/systemd/system/docker-mssql.service /etc/systemd/system/
+```
+
+- перечитываем юнитыт
+```bash
+systemctl daemon-reload
+```
+
+- размещаем compose файла в директории /opt/mssql/
+```bash
+mkdir -p /opt/mssql
+cp docker-mssql.yml /opt/mssql/docker-mssql.yml
+```
+
+- запускаем сервисы 
+```bash
+systemctl start docker-mssql
+systemctl enable docker-mssql
 ```
 
 ## Дополнительная информация
@@ -36,7 +59,13 @@ CREATE DATABASE [DATABASE_NAME]
 GO
 ```
 
-- Перед импортом создайте ползователя USER_NAME для базы данных и отредактируйте sql скрипт бекапа добавив соответсттвующие права на базу
+- Перед импортом создайте ползователя USER_NAME для базы данных
+
+```bash
+CREATE LOGIN USER_NAME WITH PASSWORD = 'your_password';
+```
+
+- Отредактируйте sql скрипт бекапа добавив соответсттвующие права на базу
 ```bash
 CREATE USER USER_NAME FOR LOGIN USER_NAME;
 GO
