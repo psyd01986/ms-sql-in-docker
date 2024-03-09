@@ -10,12 +10,12 @@
 
 ```bash
 # Если вы работаете с Docker в Linux, используйте следующий синтаксис с одинарными кавычками
-docker run -e ACCEPT_EULA=Y -e MSSQL_PID='Developer' -e MSSQL_SA_PASSWORD='P@ssw0rd1234567890' -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
+docker run -e ACCEPT_EULA=Y -e MSSQL_PID='Developer' -e MSSQL_SA_PASSWORD='P@ssw0rd12345' -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
 ```
 
 ```bash
 # Если вы работаете с Docker в Windows, используйте следующий синтаксис с двойными кавычками
-docker run -e ACCEPT_EULA=Y -e MSSQL_PID="Developer" -e MSSQL_SA_PASSWORD="P@ssw0rd1234567890" -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
+docker run -e ACCEPT_EULA=Y -e MSSQL_PID="Developer" -e MSSQL_SA_PASSWORD="P@ssw0rd12345" -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
 ```
 
 ```bash
