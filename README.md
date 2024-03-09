@@ -5,17 +5,17 @@
 
 * ``ACCEPT_EULA`` - принимает лицензионное соглашение конечного пользователя.
 * ``MSSQL_PID`` - указывает бесплатно лицензированный выпуск Developer Edition SQL Server для непроизводственных приложений.
-* `MSSQL_SA_PASSWORD` - задает надежный пароль (не мение 8 символов).
+* `MSSQL_SA_PASSWORD` - задает надежный пароль (не мение 8 символов, спецсимволы и пр).
 * `MSSQL_TCP_PORT` - задает TCP-порт, прослушивающий SQL Server до 1234. Это означает, что вместо сопоставления порта 1433 (по умолчанию) с портом узла в этом примере необходимо выполнить сопоставление пользовательского порта TCP с помощью команды -p 1234:1234.
 
 ```bash
 # Если вы работаете с Docker в Linux, используйте следующий синтаксис с одинарными кавычками
-docker run -e ACCEPT_EULA=Y -e MSSQL_PID='Developer' -e MSSQL_SA_PASSWORD='P@ssw0rd47154' -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
+docker run -e ACCEPT_EULA=Y -e MSSQL_PID='Developer' -e MSSQL_SA_PASSWORD='P@ssw0rd1234567890' -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
 ```
 
 ```bash
 # Если вы работаете с Docker в Windows, используйте следующий синтаксис с двойными кавычками
-docker run -e ACCEPT_EULA=Y -e MSSQL_PID="Developer" -e MSSQL_SA_PASSWORD="P@ssw0rd47154" -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
+docker run -e ACCEPT_EULA=Y -e MSSQL_PID="Developer" -e MSSQL_SA_PASSWORD="P@ssw0rd1234567890" -e MSSQL_TCP_PORT=1433 -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU29-GDR1-ubuntu-16.04
 ```
 
 ```bash
